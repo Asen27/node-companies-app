@@ -1,0 +1,30 @@
+{
+  "name": "node-companies-app",
+  "version": "1.0.0",
+  "description": "This is a simple API REST.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "RestAPI",
+    "MongoDB",
+    "Companies",
+    "Mongoose"
+  ],
+  "author": "Asen Baykushev",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.8",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  }
+}
