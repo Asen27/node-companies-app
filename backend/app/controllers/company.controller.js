@@ -55,7 +55,7 @@ exports.findAll = (req, res) => {
 
 // Find a single company with a companyId
 exports.findOne = (req, res) => {
-    Company.findById({ userId: req.user._id, _id: req.params.companyId })
+    Company.findById({_id: req.params.companyId })
     .then(company => {
         if(!company) {
             return res.status(404).send({
@@ -88,7 +88,7 @@ exports.update = (req, res) => {
     }
 
     // Find company and update it with the request body
-    Company.findByIdAndUpdate({ userId: req.user._id, _id: req.params.companyId }, {
+    Company.findByIdAndUpdate({_id: req.params.companyId }, {
         name: req.body.name, 
         crunchbase_url: req.body.crunchbase_url,
         homepage_url: req.body.homepage_url,
@@ -127,7 +127,7 @@ exports.update = (req, res) => {
 
 // Delete a note with the specified companyId in the request
 exports.delete = (req, res) => {
-    Company.findByIdAndRemove({ userId: req.user._id, _id: req.params.companyId })
+    Company.findByIdAndRemove({_id: req.params.companyId })
     .then(company => {
         if(!company) {
             return res.status(404).send({
