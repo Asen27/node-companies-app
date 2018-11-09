@@ -60,8 +60,8 @@ router.route('/companies')
 // Create endpoint handlers for /companies/:company_id
 router.route('/companies/:companyId')
   .get(companyController.findOne)
-  .put(companyController.update)
-  .delete(companyController.delete);
+  .put(checkJwt, companyController.update)
+  .delete(checkJwt, companyController.delete);
 
 
 app.use(function(req, res, next) {

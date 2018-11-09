@@ -86,23 +86,9 @@ exports.update = (req, res) => {
             message: "Company name can not be empty"
         });
     }
-
+    
     // Find company and update it with the request body
-    Company.findByIdAndUpdate({_id: req.params.companyId }, {
-        name: req.body.name, 
-        crunchbase_url: req.body.crunchbase_url,
-        homepage_url: req.body.homepage_url,
-        blog_url: req.body.blog_url,
-        twitter_username: req.body.twitter_username,
-        number_of_employees: req.body.number_of_employees,
-        founded_year: req.body.founded_year,
-        founded_month: req.body.founded_month,
-        founded_day: req.body.founded_day,
-        tag_list: req.body.tag_list,
-        email_address: req.body.email_address,
-        description: req.body.description,
-        products: req.body.products
-    }, {new: true})
+    Company.findByIdAndUpdate({_id: req.params.companyId }, req.body, {new: true})
     .then(company => {
         if(!company) {
             return res.status(404).send({
@@ -111,13 +97,14 @@ exports.update = (req, res) => {
         }
         res.send(company);
     }).catch(err => {
+        console.error(err);
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Company not found with id " + req.params.companyId
+                message: "Company not found with id " + req.params.companyId + "with error " + err
             });                
         }
         return res.status(500).send({
-            message: "Error updating company with id " + req.params.companyId
+            message: "Error updating company with id " + req.params.companyId + "with error " + err
         });
     });
 };

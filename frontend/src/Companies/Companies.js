@@ -26,7 +26,7 @@ class Companies extends Component {
     return (
       <div className="container">
         <div className="row">
-        <Link to="/new-company">
+        <Link to="/api/new-company">
             <div className="card text-white bg-secondary mb-3">
               <div className="card-header">Need help? Ask here!</div>
               <div className="card-body">

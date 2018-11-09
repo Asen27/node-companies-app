@@ -6,6 +6,7 @@ import Companies from './Companies/Companies';
 import Callback from './Callback';
 import auth0Client from './Auth';
 import NewCompany from './NewCompany/NewCompany';
+import UpdateCompany from './UpdateCompany/UpdateCompany';
 import SecuredRoute from './SecuredRoute/SecuredRoute';
 
 
@@ -29,7 +30,8 @@ class App extends Component {
         <Route exact path='/' component={Companies}/>
         <Route exact path='/api/companies/:companyId' component={Company}/>
         <Route exact path='/callback' component={Callback}/>
-        <SecuredRoute path='/new-company' component={NewCompany} />
+        <SecuredRoute path='/api/new-company' component={NewCompany} />
+        <SecuredRoute path='/api/update-company/:companyId' component={UpdateCompany} />
       </div>
     );
   }

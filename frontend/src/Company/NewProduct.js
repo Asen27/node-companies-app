@@ -24,7 +24,7 @@ class NewProduct extends Component {
   }
 
   submit() {
-    this.props.newProduct(this.state.answer);
+    this.props.newProduct({name: this.state.name, permalink: this.state.permalink});
 
     this.setState({
         name: '',
@@ -36,6 +36,8 @@ class NewProduct extends Component {
     if (!auth0Client.isAuthenticated()) return null;
     return (
       <Fragment>
+      <hr className="my-4" />
+      <h4>Add new product:</h4>
         <div className="form-group text-center">
           <label htmlFor="exampleInputEmail1">Product name:</label>
           <input
